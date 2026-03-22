@@ -1,8 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.exceptions import ValidationError
-
-import settings
+from django.conf import settings
 
 
 class Genre(models.Model):
@@ -56,7 +55,7 @@ class MovieSession(models.Model):
     )
 
     def __str__(self) -> str:
-        return f"{self.movie_title} {str(self.show_time)}"
+        return f"{self.movie.title} {str(self.show_time)}"
 
 
 class User(AbstractUser):
